@@ -1,0 +1,165 @@
+body {
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-mobile);
+  font-style: var(--body-font-style);
+  font-weight: var(--body-font-weight);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height-mobile);
+  text-transform: var(--body-text-transform);
+
+  @media (--laptop) {
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+  }
+}
+
+h1,
+.h1 {
+  @include fluid-type(64px, 96px, 68px, 104px);
+}
+
+h2,
+.h2 {
+  @include fluid-type(44px, 60px, 50px, 66px);
+}
+
+h3,
+.h3 {
+  @include fluid-type(30px, 36px, 34px, 42px);
+}
+
+h4,
+.h4 {
+  @include fluid-type(26px, 32px, 35px, 37px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+h5,
+.h5 {
+  @include fluid-type(20px, 22px, 30px, 32px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.preamble {
+  @include line-height(28, 19);
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  @media (--laptop) {
+    @include line-height(30, 21);
+    font-size: 21px;
+  }
+}
+
+small,
+.small {
+  @include line-height(22, 15);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+blockquote,
+.blockquote {
+  @include fluid-type(24px, 28px, 30px, 34px);
+  font-weight: 700;
+}
+
+label,
+.label {
+  @include line-height(22, 15);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  font-weight: 300;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+// Spacing
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 0;
+}
+
+ol,
+ul,
+p,
+blockquote,
+figure,
+table {
+  margin-bottom: 0;
+}
+
+ol,
+ul {
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+// WYSIWYG / Editor content spacing
+.editor-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    margin-bottom: var(--spacing-large);
+
+    @media (--laptop) {
+      margin-bottom: var(--spacing-xx-large);
+    }
+  }
+
+  ol,
+  ul,
+  p,
+  blockquote,
+  figure,
+  table {
+    margin-bottom: var(--editor-content-tag-margin);
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.text-dark {
+  color: var(--text-color) !important;
+}
+
+.text-light {
+  color: var(--text-color-inverted) !important;
+}

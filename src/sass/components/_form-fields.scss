@@ -1,0 +1,131 @@
+:--form-field {
+	font-family: var(--form-field-font-family);
+	font-size: var(--form-field-font-size);
+	line-height: var(--form-field-line-height);
+	transition: all, var(--transition-duration) ease;
+	padding: 0 var(--form-field-padding-x) var(--form-field-padding-y);
+
+	@media (--laptop-max) {
+		font-size: var(--form-field-font-size-mobile);
+		line-height: var(--form-field-line-height-mobile);
+		padding: 0 var(--form-field-padding-x-mobile) var(--form-field-padding-y-mobile);
+	}
+
+	&:active {
+		border-width: var(--form-field-border-width-active);
+		border-color: var(--form-field-border-color-active);
+	}
+
+	&:focus {
+		border-width: var(--form-field-border-width-active);
+		border-color: var(--form-field-border-color-active);
+	}
+
+	&:disabled,
+	&.disabled {
+		opacity: 0.4;
+	}
+}
+
+:--form-field-selector {
+	font-family: var(--form-field-font-family);
+}
+
+.form-control {
+	position: relative;
+	margin-bottom: var(--spacing-large);
+
+	:--form-field {
+		&.is-error {
+			border-color: var(--color-warning);
+		}
+
+		&.is-valid {
+			border-color: var(--color-success);
+		}
+	}
+
+	&-feedback {
+		display: block;
+		margin-top: var(--spacing-x-small);
+		font-size: 0.9375rem;
+		line-height: 1.375rem;
+		font-weight: 400;
+		letter-spacing: 0.02em;
+
+		&.error-feedback {
+			color: var(--color-warning);
+		}
+
+		&.valid-feedback {
+			color: var(--color-success);
+		}
+	}
+
+	&--radio {
+		position: relative;
+		padding-left: var(--form-radio-padding-left);
+		@include line-height(20, 13);
+		font-size: 0.8125rem;
+		font-weight: 500;
+
+		input {
+			display: none;
+
+			&:checked {
+				& ~ label::before {
+					background-color: var(--form-radio-color);
+				}
+			};
+		}
+
+		label {
+			cursor: pointer;
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				display: block;
+				width: var(--form-radio-width);
+				height: var(--form-radio-height);
+				border: 1px solid var(--form-radio-color);
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&--checkbox {
+		position: relative;
+		padding-left: var(--form-checkbox-padding-left);
+		@include line-height(20, 13);
+		font-size: 0.8125rem;
+		font-weight: 500;
+
+		input {
+			display: none;
+
+			&:checked {
+				& ~ label::before {
+					background-color: var(--form-checkbox-color);
+				}
+			};
+		}
+
+		label {
+			cursor: pointer;
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				display: block;
+				width: var(--form-checkbox-width);
+				height: var(--form-checkbox-height);
+				border: 1px solid var(--form-checkbox-color);
+			}
+		}
+	}
+}

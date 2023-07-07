@@ -1,0 +1,136 @@
+/*--------------------------------------------------
+    Containers
+--------------------------------------------------*/
+.container {
+  @media (--tablet-max) {
+    --container-margin: var(--container-margin-mobile);
+  }
+
+  &.spacing--small {
+    --container-margin: var(--spacing-x-large);
+  }
+}
+
+.container--small {
+  @extend .container;
+
+  --site-width-max: var(--site-width-small);
+}
+
+.container-full {
+  margin: var(--spacing-xxx-large) 0;
+
+  @media (--tablet-max) {
+    margin: var(--spacing-small) 0;
+  }
+}
+
+/*--------------------------------------------------
+	  Sections
+  --------------------------------------------------*/
+.section {
+  @media (--tablet-max) {
+    --section-padding: var(--section-padding-mobile);
+    padding: var(--section-padding) var(--section-padding);
+  }
+
+  &.spacing--small {
+    --section-padding: var(--spacing-x-large);
+  }
+}
+
+.section--small {
+  @extend .section;
+
+  --site-width-max: var(--site-width-small);
+}
+
+.section--fullWidth {
+  @extend .section;
+
+  --site-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media (--laptop) {
+    padding-left: var(--spacing-xxx-large);
+    padding-right: var(--spacing-xxx-large);
+  }
+}
+
+.section--padding {
+  @include fluid-padding-top(160px, 200px);
+  @include fluid-padding-bottom(160px, 200px);
+}
+
+.section-header {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (--laptop) {
+    width: 83.33333%;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &-description {
+    margin-top: var(--spacing-large);
+    @media (--laptop) {
+      margin-top: var(--spacing-xx-large);
+    }
+  }
+}
+
+.section-body {
+  width: 100%;
+  margin: 0 auto;
+
+  @media (--laptop) {
+    width: 83.33333%;
+  }
+}
+
+/*--------------------------------------------------
+	  Helper
+  --------------------------------------------------*/
+.touch-device-only {
+  display: block !important;
+
+  @media (--laptop) {
+    display: none !important;
+  }
+}
+
+.laptop-only {
+  display: none !important;
+
+  @media (--laptop) {
+    display: block !important;
+  }
+}
+
+.display-none {
+  display: none !important;
+}
+
+.no-gutter-grid {
+  padding-left: 0;
+  padding-right: 0;
+
+  .row {
+    @media (--laptop-max) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    > .col,
+    > [class*="col-"] {
+      @media (--laptop-max) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}

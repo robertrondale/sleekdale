@@ -1,0 +1,64 @@
+.section-newsletter {
+	.newsletter {
+		&-row {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		&-column {
+			&--content {
+				width: 100%;
+				@media (--laptop) {
+					width: 16.66667%;
+				}
+			}
+	
+			&--form {
+				width: 100%;
+				@media (--laptop) {
+					display: flex;
+					flex-wrap: wrap;
+					width: 83.33333%;
+				}
+			}
+		}
+
+		&-icon {
+			width: 35.82%;
+			margin: 0 auto 5rem;
+			@media (--laptop) {
+				width: 71.43%;
+				margin: 0;
+				// margin: var(--spacing-xxx-large) 0 0;
+			}
+		}
+
+		&-title {
+			width: 100%;
+			margin: 0 0 5rem;
+			text-align: center;
+			@media (--laptop) {
+				width: 40%;
+				margin: 0;
+				text-align: left;
+			}
+		}
+
+		&-form {
+			width: 100%;
+			@media (--laptop) {
+				margin-left: auto;
+				width: 50%;
+			}
+		}
+
+		&-message {
+			text-align: center;
+			@media (--laptop) {
+				text-align: left;
+			}
+		}
+	}
+}
+  

@@ -1,0 +1,70 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  --scroll-behavior: smooth;
+}
+
+html.admin-bar {
+  margin-top: 0 !important;
+
+  #wpadminbar {
+    transform: translateX(calc(100% - 35px));
+    transition: transform var(--transition-duration) 1s
+      var(--transition-timing-function);
+
+    @media (--laptop-max) {
+      display: none;
+    }
+
+    &:hover {
+      transform: translate(0, 0);
+      transition-delay: 0s;
+    }
+  }
+}
+
+img {
+  &.js-lazy {
+    opacity: 0;
+
+    transition: opacity var(--transition-duration) var(--easing);
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+}
+
+.list-unstyled {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.link-with-underline-animation {
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: "";
+    background-color: currentColor;
+    width: 0;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: all var(--transition-duration) var(--transition-timing-function);
+  }
+
+  &:hover,
+  &.is-active {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}

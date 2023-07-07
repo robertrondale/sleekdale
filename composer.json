@@ -1,0 +1,111 @@
+{
+  "name": "powerbuoy/sleek",
+  "description": "The WordPress Theme for Developers.",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Robert Rondale Odulio",
+      "email": "robertrondale.d.odulio@wellsfargo.com"
+    }
+  ],
+  // "repositories": [
+  //   {
+  //     "type": "package",
+  //     "package": {
+  //       "name": "stok-plugins/wp-migrate-db-pro",
+  //       "version": "2.3.4",
+  //       "type": "wordpress-plugin",
+  //       "dist": {
+  //         "type": "zip",
+  //         "url": "https://plugins.sfo.stok.se/wp-migrate-db-pro/2.3.4.zip"
+  //       }
+  //     }
+  //   },
+  //   {
+  //     "type": "package",
+  //     "package": {
+  //       "name": "stok-plugins/advanced-custom-fields-pro",
+  //       "version": "5.12.3",
+  //       "type": "wordpress-plugin",
+  //       "dist": {
+  //         "type": "zip",
+  //         "url": "https://plugins.sfo.stok.se/advanced-custom-fields-pro/5.12.3.zip"
+  //       }
+  //     }
+  //   },
+	// 	{
+	// 		"type": "package",
+	// 		"package": {
+	// 			"name": "stok-plugins/polylang-pro",
+	// 			"version": "3.1.4",
+	// 			"type": "wordpress-plugin",
+	// 			"dist": {
+	// 				"type": "zip",
+	// 				"url": "https://plugins.sfo.stok.se/polylang-pro/3.1.4.zip"
+	// 			}
+	// 		}
+	// 	},
+	// 	{
+	// 		"type": "package",
+	// 		"package": {
+	// 			"name": "stok-plugins/ponty-connector",
+	// 			"version": "1.0.4",
+	// 			"type": "wordpress-plugin",
+	// 			"dist": {
+	// 				"type": "zip",
+	// 				"url": "https://plugins.sfo.stok.se/ponty-connector/1.0.4.zip"
+	// 			}
+	// 		}
+	// 	},    
+  //   {
+  //     "type": "composer",
+  //     "url": "https://wpackagist.org"
+  //   }
+  // ],
+  // "extra": {
+  //   "installer-paths": {
+  //     "../../plugins/{$name}/": [
+  //       "type:wordpress-plugin"
+  //     ]
+  //   }
+  // },
+  // "require": {
+  //   "php": ">=7.1",
+  //   "composer/installers": "~1.0",
+  //   "stok-plugins/advanced-custom-fields-pro": "*",
+  //   "stok-plugins/wp-migrate-db-pro": "*",
+  //   "stok-plugins/ponty-connector": "*",
+  //   "stok-plugins/polylang-pro": "*",
+  //   "powerbuoy/sleek-acf": "^2.0",
+  //   "powerbuoy/sleek-archive-filter": "^2.0",
+  //   "powerbuoy/sleek-archive-meta": "^3.0",
+  //   "powerbuoy/sleek-cleanup": "^4.0",
+  //   "powerbuoy/sleek-core": "^4.0",
+  //   "powerbuoy/sleek-custom-logo": "^2.0",
+  //   "powerbuoy/sleek-gallery": "^3.0",
+  //   "powerbuoy/sleek-google-maps": "^2.0",
+  //   "powerbuoy/sleek-google-search": "^1.0",
+  //   "powerbuoy/sleek-image-sizes": "^1.0",
+  //   "powerbuoy/sleek-login": "^2.0",
+  //   "powerbuoy/sleek-menu": "^1.0",
+  //   "powerbuoy/sleek-modules": "^7.0",
+  //   "powerbuoy/sleek-notices": "^2.0",
+  //   "powerbuoy/sleek-post-types": "^6.0",
+  //   "powerbuoy/sleek-settings": "^1.0",
+  //   "powerbuoy/sleek-tinymce": "^2.0",
+  //   "powerbuoy/sleek-utils": "^1.0",
+  //   "wpackagist-plugin/sucuri-scanner": "^1.8",
+  //   "wpackagist-plugin/wordpress-seo": "^19.6",
+  //   "wpackagist-plugin/safe-svg": "*",
+  //   "wpackagist-plugin/query-monitor": "*"
+  // },
+  // "require-dev": {
+  //   "squizlabs/php_codesniffer": "^2.8.0"
+  // },
+  // "config": {
+  //   "allow-plugins": {
+  //     "kylekatarnls/update-helper": true,
+  //     "composer/installers": true
+  //   }
+  // }
+}

@@ -1,0 +1,1067 @@
+////////////////
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: " ";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > img,
+  > video,
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    right: -9999px;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+@mixin aspect-ratio-guide($width, $height) {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+
+  &::before {
+    display: block;
+    content: " ";
+    width: 0;
+    padding-top: ($height / $width) * 100%;
+  }
+}
+
+@mixin relate-aspect-ratio {
+  position: relative;
+  overflow: hidden;
+
+  > img,
+  > video,
+  > figure,
+  > .ratio-content {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    right: -9999px;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+  }
+
+  > iframe,
+  > .ratio-iframe {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    right: -9999px;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+
+  > iframe {
+    min-height: 200%;
+    min-width: 200%;
+  }
+}
+
+//////////////
+// Object fit
+// NOTE: object fits the container and retains its original ratio.
+@mixin object-fit($target) {
+  position: relative;
+  overflow: hidden;
+
+  #{$target} {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    right: -9999px;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+/////////////
+// Media queries
+@mixin media-min($min) {
+  @media screen and (min-width: #{ $min }) {
+    @content;
+  }
+}
+
+@mixin media-between($min, $max) {
+  @media screen and (min-width: #{$min}) and (max-width: #{$max}) {
+    @content;
+  }
+}
+
+@mixin media-max($max) {
+  @media screen and (max-width: #{$max}) {
+    @content;
+  }
+}
+
+/////////////
+// Fluid
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Font size
+@mixin fluid-type(
+  $min-font-size,
+  $max-font-size,
+  $min-line-height: inherit,
+  $max-line-height: inherit
+) {
+  $u1: unit($mixin-fluid-min-breakpoint);
+  $u2: unit($mixin-fluid-max-breakpoint);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+  $line-height-touch: $min-line-height / $min-font-size;
+  $line-height: $max-line-height / $max-font-size;
+
+  @if (true) {
+    @if $u1==$u2 and $u1==$u3 and $u1==$u4 {
+      & {
+        font-size: $min-font-size;
+
+        @if ($min-line-height== "inherit") {
+          line-height: inherit;
+        } @else {
+          line-height: strip-unit($line-height-touch);
+        }
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          font-size: calc(
+            #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+
+          @if ($min-line-height== "inherit") {
+            line-height: inherit;
+          } @else {
+            line-height: strip-unit($line-height);
+          }
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          font-size: $max-font-size;
+        }
+      }
+    }
+  } @else {
+    & {
+      font-size: $min-font-size;
+
+      @if ($min-line-height== "inherit") {
+        line-height: inherit;
+      } @else {
+        line-height: strip-unit($line-height-touch);
+      }
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        font-size: $max-font-size;
+
+        @if ($min-line-height== "inherit") {
+          line-height: inherit;
+        } @else {
+          line-height: strip-unit($line-height);
+        }
+      }
+    }
+  }
+}
+
+// Width
+@mixin fluid-width(
+  $mixin-fluid-min-breakpoint,
+  $mixin-fluid-max-breakpoint,
+  $min-width,
+  $max-width
+) {
+  $w1: unit($mixin-fluid-min-breakpoint);
+  $w2: unit($mixin-fluid-max-breakpoint);
+  $w3: unit($min-width);
+  $w4: unit($max-width);
+
+  @if $w1==$w2 and $w1==$w3 and $w1==$w4 {
+    & {
+      width: $min-width;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        width: calc(
+          #{$min-width} + #{strip-unit($max-width - $min-width)} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        width: $max-width;
+      }
+    }
+  }
+}
+
+@mixin fluid-max-width(
+  $min-width,
+  $max-width
+) {
+  $w1: unit($mixin-fluid-min-breakpoint);
+  $w2: unit($mixin-fluid-max-breakpoint);
+  $w3: unit($min-width);
+  $w4: unit($max-width);
+
+  @if $w1==$w2 and $w1==$w3 and $w1==$w4 {
+    & {
+      max-width: $min-width;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        max-width: calc(
+          #{$min-width} + #{strip-unit($max-width - $min-width)} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        max-width: $max-width;
+      }
+    }
+  }
+}
+
+@mixin fluid-min-width(
+  $min-width,
+  $max-width
+) {
+  $w1: unit($mixin-fluid-min-breakpoint);
+  $w2: unit($mixin-fluid-max-breakpoint);
+  $w3: unit($min-width);
+  $w4: unit($max-width);
+
+  @if $w1==$w2 and $w1==$w3 and $w1==$w4 {
+    & {
+      min-width: $min-width;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        min-width: calc(
+          #{$min-width} + #{strip-unit($max-width - $min-width)} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        min-width: $max-width;
+      }
+    }
+  }
+}
+
+// Height
+@mixin fluid-height(
+  $min-height,
+  $max-height
+) {
+  $h1: unit($mixin-fluid-min-breakpoint);
+  $h2: unit($mixin-fluid-max-breakpoint);
+  $h3: unit($min-height);
+  $h4: unit($max-height);
+
+  @if $h1==$h2 and $h1==$h3 and $h1==$h4 {
+    & {
+      height: $min-height;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        height: calc(
+          #{$min-height} + #{strip-unit($max-height - $min-height)} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        height: $max-height;
+      }
+    }
+  }
+}
+
+// Padding
+@mixin fluid-padding(
+  $min-padding-y,
+  $max-padding-y,
+  $min-padding-x,
+  $max-padding-x
+) {
+  $pu1: unit($mixin-fluid-min-breakpoint);
+  $pu2: unit($mixin-fluid-max-breakpoint);
+  $pu3: unit($min-padding-x);
+  $pu4: unit($max-padding-x);
+  $pu5: unit($min-padding-y);
+  $pu6: unit($max-padding-y);
+
+  @if $pu1==$pu2 and $pu1==$pu3 and $pu1==$pu4 and $pu1==$pu5 and $pu1==$pu6 {
+    & {
+      padding: $min-padding-y $min-padding-x;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        padding: {
+          top: calc(
+            #{$min-padding-y} + #{strip-unit($max-padding-x - $min-padding-y)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          right: calc(
+            #{$min-padding-x} + #{strip-unit($max-padding-x - $min-padding-x)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          bottom: calc(
+            #{$min-padding-y} + #{strip-unit($max-padding-x - $min-padding-y)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          left: calc(
+            #{$min-padding-x} + #{strip-unit($max-padding-x - $min-padding-x)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        padding: $max-padding-y $max-padding-x;
+      }
+    }
+  }
+}
+
+@mixin fluid-padding-top(
+  $min-padding-top,
+  $max-padding-top
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-padding-top);
+  $pt4: unit($max-padding-top);
+
+  @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+    & {
+      padding-top: $min-padding-top;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        padding-top: calc(
+          #{$min-padding-top} + #{strip-unit(
+              $max-padding-top - $min-padding-top
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        padding-top: $max-padding-top;
+      }
+    }
+  }
+}
+
+@mixin fluid-padding-right(
+  $min-padding-right,
+  $max-padding-right
+) {
+  $pr1: unit($mixin-fluid-min-breakpoint);
+  $pr2: unit($mixin-fluid-max-breakpoint);
+  $pr3: unit($min-padding-right);
+  $pr4: unit($max-padding-right);
+
+  @if $pr1==$pr2 and $pr1==$pr3 and $pr1==$pr4 {
+    & {
+      padding-right: $min-padding-right;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        padding-right: calc(
+          #{$min-padding-right} + #{strip-unit(
+              $max-padding-right - $min-padding-right
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        padding-right: $max-padding-right;
+      }
+    }
+  }
+}
+
+@mixin fluid-padding-bottom(
+  $min-padding-bottom,
+  $max-padding-bottom
+) {
+  $pr1: unit($mixin-fluid-min-breakpoint);
+  $pr2: unit($mixin-fluid-max-breakpoint);
+  $pr3: unit($min-padding-bottom);
+  $pr4: unit($max-padding-bottom);
+
+  @if $pr1==$pr2 and $pr1==$pr3 and $pr1==$pr4 {
+    & {
+      padding-bottom: $min-padding-bottom;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        padding-bottom: calc(
+          #{$min-padding-bottom} + #{strip-unit(
+              $max-padding-bottom - $min-padding-bottom
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        padding-bottom: $max-padding-bottom;
+      }
+    }
+  }
+}
+
+@mixin fluid-padding-left(
+  $min-padding-left,
+  $max-padding-left
+) {
+  $pr1: unit($mixin-fluid-min-breakpoint);
+  $pr2: unit($mixin-fluid-max-breakpoint);
+  $pr3: unit($min-padding-left);
+  $pr4: unit($max-padding-left);
+
+  @if $pr1==$pr2 and $pr1==$pr3 and $pr1==$pr4 {
+    & {
+      padding-left: $min-padding-left;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        padding-left: calc(
+          #{$min-padding-left} + #{strip-unit(
+              $max-padding-left - $min-padding-left
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        padding-left: $max-padding-left;
+      }
+    }
+  }
+}
+
+// Margin
+@mixin fluid-margin(
+  $min-margin-y,
+  $max-margin-y,
+  $min-margin-x,
+  $max-margin-x
+) {
+  $pu1: unit($mixin-fluid-min-breakpoint);
+  $pu2: unit($mixin-fluid-max-breakpoint);
+  $pu3: unit($min-margin-x);
+  $pu4: unit($max-margin-x);
+  $pu5: unit($min-margin-y);
+  $pu6: unit($max-margin-y);
+
+  @if $pu1==$pu2 and $pu1==$pu3 and $pu1==$pu4 and $pu1==$pu5 and $pu1==$pu6 {
+    & {
+      margin: $min-margin-y $min-margin-x;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        margin: {
+          top: calc(
+            #{$min-margin-y} + #{strip-unit($max-margin-x - $min-margin-y)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          right: calc(
+            #{$min-margin-x} + #{strip-unit($max-margin-x - $min-margin-x)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          bottom: calc(
+            #{$min-margin-y} + #{strip-unit($max-margin-x - $min-margin-y)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+          left: calc(
+            #{$min-margin-x} + #{strip-unit($max-margin-x - $min-margin-x)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        margin: $max-margin-y $max-margin-x;
+      }
+    }
+  }
+}
+
+@mixin fluid-margin-top(
+  $min-margin-top,
+  $max-margin-top
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-margin-top);
+  $pt4: unit($max-margin-top);
+
+  @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+    & {
+      margin-top: $min-margin-top;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        margin-top: calc(
+          #{$min-margin-top} + #{strip-unit($max-margin-top - $min-margin-top)} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        margin-top: $max-margin-top;
+      }
+    }
+  }
+}
+
+@mixin fluid-margin-right(
+  $min-margin-right,
+  $max-margin-right
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-margin-right);
+  $pt4: unit($max-margin-right);
+
+  @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+    & {
+      margin-right: $min-margin-right;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        margin-right: calc(
+          #{$min-margin-right} + #{strip-unit(
+              $max-margin-right - $min-margin-right
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        margin-right: $max-margin-right;
+      }
+    }
+  }
+}
+
+@mixin fluid-margin-bottom(
+  $min-margin-bottom,
+  $max-margin-bottom
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-margin-bottom);
+  $pt4: unit($max-margin-bottom);
+
+  @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+    & {
+      margin-bottom: $min-margin-bottom;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        margin-bottom: calc(
+          #{$min-margin-bottom} + #{strip-unit(
+              $max-margin-bottom - $min-margin-bottom
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        margin-bottom: $max-margin-bottom;
+      }
+    }
+  }
+}
+
+@mixin fluid-margin-left(
+  $min-margin-left,
+  $max-margin-left
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-margin-left);
+  $pt4: unit($max-margin-left);
+
+  @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+    & {
+      margin-left: $min-margin-left;
+
+      @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+        margin-left: calc(
+          #{$min-margin-left} + #{strip-unit(
+              $max-margin-left - $min-margin-left
+            )} *
+            (
+              (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                  $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                )}
+            )
+        );
+      }
+
+      @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+        margin-left: $max-margin-left;
+      }
+    }
+  }
+}
+
+// Position
+@mixin fluid-top(
+  $min-top,
+  $max-top,
+  $important: false
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-top);
+  $pt4: unit($max-top);
+
+  @if $important {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        top: $min-top !important;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          top: calc(
+            #{$min-top} + #{strip-unit($max-top - $min-top)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          ) !important;
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          top: $max-top !important;
+        }
+      }
+    }
+  } @else {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        top: $min-top;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          top: calc(
+            #{$min-top} + #{strip-unit($max-top - $min-top)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          top: $max-top;
+        }
+      }
+    }
+  }
+}
+
+@mixin fluid-right(
+  $min-right,
+  $max-right,
+  $important: false
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-right);
+  $pt4: unit($max-right);
+
+  @if $important {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        right: $min-right !important;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          right: calc(
+            #{$min-right} + #{strip-unit($max-right - $min-right)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          ) !important;
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          right: $max-right !important;
+        }
+      }
+    }
+  } @else {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        right: $min-right;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          right: calc(
+            #{$min-right} + #{strip-unit($max-right - $min-right)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          right: $max-right;
+        }
+      }
+    }
+  }
+}
+
+@mixin fluid-bottom(
+  $min-bottom,
+  $max-bottom,
+  $important: false
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-bottom);
+  $pt4: unit($max-bottom);
+
+  @if $important {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        bottom: $min-bottom !important;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          bottom: calc(
+            #{$min-bottom} + #{strip-unit($max-bottom - $min-bottom)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          ) !important;
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          bottom: $max-bottom !important;
+        }
+      }
+    }
+  } @else {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        bottom: $min-bottom;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          bottom: calc(
+            #{$min-bottom} + #{strip-unit($max-bottom - $min-bottom)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          bottom: $max-bottom;
+        }
+      }
+    }
+  }
+}
+
+@mixin fluid-left(
+  $min-left,
+  $max-left,
+  $important: false
+) {
+  $pt1: unit($mixin-fluid-min-breakpoint);
+  $pt2: unit($mixin-fluid-max-breakpoint);
+  $pt3: unit($min-left);
+  $pt4: unit($max-left);
+
+  @if $important {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        left: $min-left !important;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          left: calc(
+            #{$min-left} + #{strip-unit($max-left - $min-left)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          ) !important;
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          left: $max-left !important;
+        }
+      }
+    }
+  } @else {
+    @if $pt1==$pt2 and $pt1==$pt3 and $pt1==$pt4 {
+      & {
+        left: $min-left;
+
+        @media screen and (min-width: $mixin-fluid-min-breakpoint) {
+          left: calc(
+            #{$min-left} + #{strip-unit($max-left - $min-left)} *
+              (
+                (100vw - #{$mixin-fluid-min-breakpoint}) / #{strip-unit(
+                    $mixin-fluid-max-breakpoint - $mixin-fluid-min-breakpoint
+                  )}
+              )
+          );
+        }
+
+        @media screen and (min-width: $mixin-fluid-max-breakpoint) {
+          left: $max-left;
+        }
+      }
+    }
+  }
+}
+
+/////////////
+// Line height
+@mixin line-height($line-height, $font-size) {
+  $responsive-line-height: $line-height / $font-size;
+  line-height: strip-unit($responsive-line-height);
+}
+
+/////////////
+// Others
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position== "vertical" {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position== "horizontal" {
+    left: 50%;
+    transform: translate(-50%);
+  } @else if $position== "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin line-clamp($lineHeight: 1.2, $numLines: 1, $unit: "em") {
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  text-overflow: ellipsis;
+  line-height: $lineHeight + unquote($unit);
+  display: block;
+
+  /*! autoprefixer: off */
+  display: -webkit-box;
+  -webkit-line-clamp: $numLines;
+  -webkit-box-orient: vertical;
+  max-height: $numLines * $lineHeight + unquote($unit);
+  /*! autoprefixer: on */
+}
+
+@mixin line-clamp-with-height($lineHeight: 1.2, $numLines: 1, $unit: "em") {
+  overflow: hidden;
+  text-overflow: -o-ellipsis-lastline;
+  text-overflow: ellipsis;
+  line-height: $lineHeight + unquote($unit);
+  display: block;
+  /*! autoprefixer: off */
+  display: -webkit-box;
+  -webkit-line-clamp: $numLines;
+  -webkit-box-orient: vertical;
+  max-height: $numLines * $lineHeight + unquote($unit);
+  height: $numLines * $lineHeight + unquote($unit);
+  /*! autoprefixer: on */
+}
+
+@mixin oldBrowsers {
+  .windowsOS.msie &,
+  .windowsOS.edge & {
+    @content;
+  }
+}
+
+@mixin appleDevice {
+  .macOS.safari &,
+  .macOS.chrome &,
+  .isApple.iphone &,
+  .isApple.ipad & {
+    @content;
+  }
+}
+
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+// Parent selector
+@mixin parent($parent) {
+  #{$parent} & {
+    @content;
+  }
+}
+
+@mixin img-hover-opacity($image-container) {
+  @include parent(".no-touchevent") {
+    #{$image-container} {
+      img {
+        transition: opacity var(--transition-duration) ease-in-out;
+      }
+    }
+
+    &:hover {
+      #{$image-container} {
+        img {
+          opacity: $img-hover-opacity;
+        }
+      }
+    }
+  }
+}

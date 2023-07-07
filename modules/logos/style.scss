@@ -1,0 +1,42 @@
+section.section-logos {
+  overflow: hidden;
+  .section-logos-body {
+    @include fluid-padding-top(120px, 176px);
+    @include fluid-margin-top(-28px, -40px);
+    @include fluid-margin-bottom(-28px, -40px);
+    @include fluid-margin-left(-40px, -80px);
+    @include fluid-margin-right(-40px, -80px);
+
+    @media (--tablet-max) {
+      padding-left: var(--spacing-small);
+      padding-right: var(--spacing-small);
+    }
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (--laptop) {
+      width: 83.33333%;
+    }
+  }
+
+  .logo {
+    @include fluid-padding-top(28px, 40px);
+    @include fluid-padding-bottom(28px, 40px);
+    @include fluid-padding-left(40px, 80px);
+    @include fluid-padding-right(40px, 80px);
+    width: calc(100% / 2);
+    @media (--tablet) {
+      width: calc(100% / 4);
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

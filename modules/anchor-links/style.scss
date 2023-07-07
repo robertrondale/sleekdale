@@ -1,0 +1,43 @@
+section.section-anchor-links {
+  .anchor-links {
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @media (--laptop) {
+        flex-direction: row;
+      }
+
+      .anchor-links-item {
+        padding: 0 12px;
+
+        &:not(:last-child) {
+          @media (--laptop-max) {
+            margin-bottom: 16px;
+          }
+        }
+
+        // For Anchor Links
+        .no-touchevent & {
+          a[href^="#"] {
+            &:focus {
+              background-color: transparent;
+              color: var(--text-color-inverted);
+            }
+          }
+  
+          a[href^="#"] {
+            &:hover {
+              background-color: var(--button-quarternary-color-hover);
+              color: var(--button-quarternary-color-hover-text);
+            }
+          }
+        }
+        // End - For Anchor Links
+      }
+    }
+  }
+}

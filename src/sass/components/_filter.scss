@@ -1,0 +1,35 @@
+.section {
+  .filter {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin: 0 -20px;
+    padding: 0 12px;
+
+    @media (--laptop) {
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow-x: hidden;
+      margin: -12px;
+      padding: 0;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-item {
+      padding: 0 8px;
+
+      @media (--laptop) {
+        padding: 12px;
+      }
+
+      .button {
+        min-width: initial;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+  }
+}

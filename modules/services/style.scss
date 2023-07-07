@@ -1,0 +1,111 @@
+section.section-services {
+  .service {
+    &-circle {
+      border-radius: 50%;
+      @include aspect-ratio(1, 1);
+      width: 100%;
+    }
+
+    &-content {
+      text-align: center;
+      display: block;
+      width: 60%;
+      font-weight: bold;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &-icon {
+      margin-bottom: 48px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &-title {
+      @include fluid-margin-bottom(32px, 48px);
+
+      &-link {
+        text-decoration: none;
+        --text-decoration-thickness: 4px;
+        text-underline-offset: 9px;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: var(--text-decoration-thickness);
+        }
+      }
+    }
+
+    &-under {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+
+      @media (--laptop-max) {
+        flex-direction: column;
+      }
+
+      @media (--laptop) {
+      }
+    }
+
+    &-link {
+      &:not(:last-child) {
+        @include fluid-margin-bottom(14px, 32px);
+      }
+      a {
+        color: var(--color-black);
+        text-decoration: none;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        @include fluid-type(19px, 32px, 28px, 37px);
+        --text-decoration-thickness: 3px;
+        text-underline-offset: 9px;
+
+        @media (--laptop) {
+          letter-spacing: 0.03em;
+        }
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-thickness: var(--text-decoration-thickness);
+        }
+      }
+    }
+  }
+
+  #service-circle {
+    &-1 {
+      margin: 0 auto;
+      z-index: 3;
+
+      @media (--laptop) {
+        width: 50%;
+        margin-bottom: -10%;
+      }
+    }
+    &-2 {
+      z-index: 2;
+
+      @media (--laptop) {
+        margin-right: -30px;
+      }
+
+      @media (--laptop-max) {
+        margin: -40px 0;
+      }
+    }
+    &-3 {
+      z-index: 1;
+
+      @media (--laptop) {
+        margin-left: -30px;
+      }
+    }
+  }
+}

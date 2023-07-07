@@ -1,0 +1,14 @@
+section.section-blog-listing {
+  @include fluid-padding-top(80px, 120px);
+  @include fluid-padding-bottom(160px, 200px);
+  overflow: hidden;
+  .section-blog-listing-header {
+    + .section-blog-listing-body {
+      @include fluid-padding-top(56px, 80px);
+    }
+  }
+  .section-blog-listing-footer {
+    @include fluid-padding-top(80px, 104px);
+    text-align: center;
+  }
+}

@@ -1,0 +1,89 @@
+.section-job-listing {
+  &.has-filter {
+    @include fluid-padding-top(80px, 120px);
+  }
+  .job-listing {
+    &-item {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      border-top: 3px solid var(--color-black);
+      padding: var(--spacing-medium) 0;
+      color: inherit;
+      text-decoration: none;
+
+      @media (--laptop) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--spacing-xxx-large) 0;
+      }
+
+      &:last-child {
+        border-bottom: 3px solid var(--color-black);
+      }
+
+      &:hover {
+        .job-listing-position {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-left,
+    &-right {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-left {
+      @media (--laptop-max) {
+        flex-direction: column;
+        margin-bottom: 24px;
+      }
+    }
+
+    &-position {
+      font-weight: 800;
+
+      @media (--laptop) {
+        margin-right: 40px;
+      }
+
+      @media (--laptop-max) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-type {
+      + .job-listing-location {
+        @media (--laptop) {
+          margin-left: 40px;
+        }
+      }
+
+      @media (--laptop-max) {
+        margin-right: 24px;
+      }
+    }
+
+    &-count {
+      @include fluid-margin-top(56px, 104px);
+      text-align: center;
+    }
+
+    &-loadmore {
+      @include fluid-margin-top(56px, 104px);
+      text-align: center;
+    }
+
+    &-filter {
+      @include fluid-margin-bottom(60px, 80px);
+      .filter {
+        + .filter {
+          @include fluid-margin-top(32px, 40px);
+        }
+      }
+    }
+  }
+}

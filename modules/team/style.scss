@@ -1,0 +1,62 @@
+section.section-team {
+  @include fluid-padding-bottom(104px, 144px);
+
+  .team {
+    &-name {
+      text-align: center;
+      @include fluid-margin-bottom(95px, 160px);
+    }
+
+    &-member {
+      text-align: center;
+      padding-bottom: 56px;
+
+      @media (--laptop) {
+        padding-bottom: 96px;
+      }
+
+      &-profile {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 24px;
+        max-width: 152px;
+
+        @media (--laptop) {
+          max-width: 240px;
+        }
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      &-name {
+        @include fluid-margin-bottom(4px, 8px);
+      }
+
+      &-position {
+        @include fluid-margin-bottom(8px, 16px);
+      }
+
+      &-links {
+        &-item {
+          &:not(:last-child) {
+            @include fluid-margin-bottom(4px, 8px);
+          }
+        }
+      }
+
+      &-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-black);
+        text-decoration: none;
+      }
+
+      &-contact-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}

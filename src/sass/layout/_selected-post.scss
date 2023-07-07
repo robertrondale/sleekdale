@@ -1,0 +1,29 @@
+.selected-post {
+  &-image {
+    @include aspect-ratio(16, 9);
+    @media (--laptop) {
+      margin: 0 64px;
+    }
+  }
+
+  section.section-text-editor {
+    @include fluid-padding-top(80px, 120px);
+  }
+
+  section.section-text-hero {
+    .text-hero {
+      &-title {
+        @extend .h2;
+        @include fluid-margin-bottom(40px, 56px);
+      }
+
+      &-wrapper {
+        padding: 152px 20px 80px 20px;
+
+        @media (--laptop) {
+          padding: 200px 20px 120px 20px;
+        }
+      }
+    }
+  }
+}

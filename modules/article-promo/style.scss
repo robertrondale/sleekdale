@@ -1,0 +1,7 @@
+section.section-article-promo {
+  overflow: hidden;
+
+  .section-article-promo-body {
+    @include fluid-padding-top(96px, 160px);
+  }
+}

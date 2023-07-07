@@ -1,0 +1,68 @@
+/////////////
+// Site width
+// TODO: Remove support for old browsers that don't support min()
+// or wrap in @if (map-get($supports, "min")) so it can be enabled when needed?
+@mixin site-width($min: false, $max: false, $var-suffix: "") {
+  @if ($min) {
+    --site-width-min#{$var-suffix}: #{$min};
+  }
+  @if ($max) {
+    --site-width-max#{$var-suffix}: #{$max};
+  }
+
+  --site-width#{$var-suffix}: var(--site-width-max#{$var-suffix}, 1280px);
+  --site-padding#{$var-suffix}: calc(
+    (100vw - var(--site-width#{$var-suffix}, 1280px)) / 2
+  );
+
+  @supports (padding: min(10%, 100px)) {
+    --site-width#{$var-suffix}: min(
+      var(--site-width-min#{$var-suffix}, 90vw),
+      var(--site-width-max#{$var-suffix}, 1280px)
+    );
+    --site-padding#{$var-suffix}: calc(
+      (100vw - var(--site-width#{$var-suffix})) / 2
+    );
+  }
+}
+
+:root {
+  @include site-width;
+}
+
+///////////////////
+// Custom selectors
+@custom-selector :--heading h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6;
+@custom-selector :--form-field input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=month], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local]; //, input[type=color]
+@custom-selector :--form-field-selector input[type=radio], input[type=checkbox];
+
+// Mixins
+// @import "~sleek-ui/src/sass/mixins/auto-icons";
+// @import "~sleek-ui/src/sass/mixins/burger-menu";
+@import "~sleek-ui/src/sass/mixins/button";
+// @import "~sleek-ui/src/sass/mixins/container";
+// @import "~sleek-ui/src/sass/mixins/grid";
+@import "~sleek-ui/src/sass/mixins/icon";
+@import "~sleek-ui/src/sass/mixins/img";
+// @import "~sleek-ui/src/sass/mixins/list";
+@import "~sleek-ui/src/sass/mixins/section";
+@import "~sleek-ui/src/sass/mixins/text";
+// @import "~sleek-ui/src/sass/mixins/utils";
+
+// Components
+@import "~sleek-ui/src/sass/components/base";
+// @import "~sleek-ui/src/sass/components/container";
+@import "~sleek-ui/src/sass/components/form";
+// @import "~sleek-ui/src/sass/components/grid";
+@import "~sleek-ui/src/sass/components/icon";
+@import "~sleek-ui/src/sass/components/ratio";
+@import "~sleek-ui/src/sass/components/section";
+@import "~sleek-ui/src/sass/components/video";
+@import "~sleek-ui/src/sass/components/wp-classes";
+
+// JS Components
+// (NOTE: will be moved to their respective JS-files once import CSS from JS works cross browser)
+// @import "~sleek-ui/src/sass/js-components/dialog";
+// @import "~sleek-ui/src/sass/js-components/google-map";
+// @import "~sleek-ui/src/sass/js-components/slideshow";
+// @import "~sleek-ui/src/sass/js-components/video-embed";

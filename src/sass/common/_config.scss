@@ -1,0 +1,365 @@
+// Components
+$components: (
+  "form": true,
+  "form-wpcf7": false,
+  "form-hs": false,
+  "wp-classes": false,
+  "dialog": false,
+  "google-map": false,
+  "google-map-kml": false,
+  "google-map-geolocation": false,
+  "slideshow": false,
+  "slideshow-buttons": false,
+  "slideshow-bullets": false,
+  "video-embed": false,
+);
+
+// Ratios
+$ratios: ((16, 9), (1, 1));
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1440px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 100%,
+  md: 100%,
+  lg: 100%,
+  xl: 1216px,
+  xxl: 1312px,
+);
+
+$grid-gutter-width: 24px;
+
+// Custom media queries
+@custom-media --mobile (min-width: 576px);
+@custom-media --mobile-max (max-width: 575px);
+
+@custom-media --tablet (min-width: 768px);
+@custom-media --tablet-max (max-width: 767px);
+
+@custom-media --laptop (min-width: 1024px);
+@custom-media --laptop-max (max-width: 1023px);
+
+@custom-media --desktop (min-width: 1280px);
+@custom-media --desktop-max (max-width: 1279px);
+
+@custom-media --widescreen (min-width: 1440px);
+@custom-media --widescreen-max (max-width: 1439px);
+
+// Variables
+$color-black: #000000;
+$color-dark-teal: #19303a;
+$color-light-green: #e1efeb;
+$color-off-white: #f5f5ed;
+$color-pink: #e98376;
+$color-blue: #6596a0;
+$color-light-blue: #a8deea;
+
+// Config
+:root {
+  // Site width
+  --site-width-min: 90vw;
+  --site-width-max: 1280px;
+  --site-width-small: 862px;
+
+  // Colors
+  --body-bg: white;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-dark-teal: #19303a;
+  --color-light-green: #e1efeb;
+  --color-off-white: #f5f5ed;
+  --color-pink: #e98376;
+  --color-blue: #6596a0;
+  --color-light-blue: #a8deea;
+
+  --color-primary: var(--color-black);
+  --color-secondary: var(--color-dark-teal);
+  --color-tersiary: var(--color-pink);
+  --color-quarternary: var(--color-light-green);
+  --color-border: #aaa;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-gray: #999;
+  --color-warning: var(--color-pink);
+  --color-success: #53a653;
+
+  --color-facebook: #3b5998;
+  --color-twitter: #4099ff;
+  --color-linkedin: #0077b5;
+
+  // Spacing
+  --spacing-xx-small: 0.5rem; //8
+  --spacing-x-small: 1rem; //16
+  --spacing-small: 1.5rem; //24
+  --spacing-medium: 2rem; //32
+  --spacing-large: 2.5rem; //40
+  --spacing-x-large: 3rem; //48
+  --spacing-xx-large: 3.5rem; //56
+  --spacing-xxx-large: 4rem; //64
+
+  // Layout spacing
+  --container-margin: 6rem;
+  --grid-gap: var(--spacing-small);
+  --section-padding: 6rem;
+  --section-padding-mobile: var(--spacing-small);
+
+  // Layout
+  --border-radius: 0;
+  --shadow-small: 0 0.4rem 0.6rem 0 rgba(46, 77, 100, 0.39);
+  --shadow-medium: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.2),
+    0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  --shadow-large: 0 3.75rem 8.75rem -2.5rem rgba(0, 0, 0, 0.25),
+    0 3.75rem 7.5rem -1.25rem rgba(0, 0, 0, 0.25);
+  --easing: ease;
+
+  // Body text
+  --body-font-size: 18px;
+  --body-font-size-mobile: 17px;
+  --body-font-family: "Urbanist", sans-serif;
+  --body-font-weight: normal;
+  --body-font-style: normal;
+  --body-line-height: 26px;
+  --body-line-height-mobile: 25px;
+  --body-letter-spacing: 0.02em;
+  --body-text-transform: none;
+
+  --text-color: var(--color-black);
+  --text-color-inverted: var(--color-white);
+  --text-color-light-green: var(--color-light-green);
+  --text-decoration-color: initial;
+  --text-decoration-thickness: 2px;
+  --text-underline-offset: 0.375rem;
+
+  --selection-bg: var(--color-primary);
+  --selection-color: white;
+
+  // Links
+  --link-color: var(--text-color-light-green);
+  --link-color-hover: var(--color-dark-teal);
+  --link-decoration: underline;
+
+  // Headings
+  --heading-font-family: inherit;
+  --heading-font-weight: 800;
+  --heading-font-style: normal;
+  --heading-line-height: 1.2;
+  --heading-letter-spacing: 0;
+  --heading-text-transform: none;
+  --heading-color: inherit;
+  --heading-margin: var(--spacing-x-small);
+
+  // Editor Content
+  --editor-content-tag-margin: 1.5625rem;
+
+  // Buttons
+  --button-color: var(--color-primary);
+  --button-color-text: var(--text-color-inverted);
+  --button-color-border: var(--color-primary);
+  --button-color-hover: var(--color-white);
+  --button-color-hover-text: var(--text-color);
+  --button-color-active: var(--color-primary);
+  --button-color-focus: var(--color-primary);
+  --button-padding-x: 1.375rem;
+  --button-padding-y: 1.375rem;
+  --button-padding-x-mobile: 1.375rem;
+  --button-padding-y-mobile: 0.875rem;
+
+  --button-font-size: 1rem;
+  --button-font-size-mobile: 0.9375rem;
+  --button-font-family: inherit;
+  --button-font-weight: 700;
+  --button-letter-spacing: 0.03em;
+  --button-line-height: 1.25;
+  --button-text-transform: none;
+  --button-text-color: var(--text-color-inverted);
+
+  --button-border-width: 2px;
+  --button-border-style: solid;
+  --button-border-radius: 100px;
+  --button-transition-duration: 0.25s;
+  --button-shadow: none;
+  --button-min-width: 214px;
+
+  --button-primary-color: transparent;
+  --button-primary-color-text: var(--text-color);
+  --button-primary-color-border: var(--color-primary);
+  --button-primary-color-hover: var(--color-primary);
+  --button-primary-color-hover-text: var(--text-color-inverted);
+  --button-secondary-color: transparent;
+  --button-secondary-color-text: var(--color-secondary);
+  --button-secondary-color-border: var(--color-secondary);
+  --button-secondary-color-hover: var(--color-secondary);
+  --button-secondary-color-hover-text: var(--text-color-inverted);
+  --button-tersiary-color: transparent;
+  --button-tersiary-color-text: var(--color-tersiary);
+  --button-tersiary-color-border: var(--color-tersiary);
+  --button-tersiary-color-hover: var(--color-tersiary);
+  --button-tersiary-color-hover-text: var(--text-color);
+  --button-quarternary-color: transparent;
+  --button-quarternary-color-text: var(--color-quarternary);
+  --button-quarternary-color-border: var(--color-quarternary);
+  --button-quarternary-color-hover: var(--color-quarternary);
+  --button-quarternary-color-hover-text: var(--color-secondary);
+
+  --button-link-font-size: 1rem;
+  --button-link-font-size-mobile: 0.9375rem;
+  --button-link-font-weight: 700;
+  --button-link-letter-spacing: 0.03em;
+  --button-link-line-height: 1.25;
+  --button-link-color-text: var(--color-black);
+  --button-link-color-hover: var(--color-black);
+
+  --button-link-primary-color: var(--color-primary);
+  --button-link-primary-color-hover: var(--color-primary);
+  --button-link-secondary-color: var(--color-secondary);
+  --button-link-secondary-color-hover: var(--color-secondary);
+  --button-link-tersiary-color: var(--color-tersiary);
+  --button-link-tersiary-color-hover: var(--color-tersiary);
+  --button-link-quarternary-color: var(--color-quarternary);
+  --button-link-quarternary-color-hover: var(--color-quarternary);
+
+  // Form
+  --form-field-bg: transparent;
+  --form-field-focus-bg: var(--form-field-bg);
+  --form-field-hover-bg: var(--form-field-bg);
+
+  --form-field-padding-x: 0;
+  --form-field-padding-y: 1.5rem;
+  --form-field-padding-x-mobile: 0;
+  --form-field-padding-y-mobile: 1rem;
+
+  --form-field-font-size: 1.125rem;
+  --form-field-font-size-mobile: 1.0625rem;
+  --form-field-font-family: var(--body-font-family);
+  --form-field-font-weight: 400;
+  --form-field-letter-spacing: 0.02em;
+  --form-field-line-height: 1.625rem;
+  --form-field-line-height-mobile: 1.5625rem;
+  --form-field-text-color: var(--text-color);
+
+  --form-field-border-width: 0 0 2px;
+  --form-field-border-width-active: 0 0 3px;
+  --form-field-border-style: solid;
+  --form-field-border-radius: var(--border-radius);
+  --form-field-border-color: #4d4d4d;
+  --form-field-border-color-active: var(--color-black);
+  --form-field-hover-border-color: var(--form-field-border-color);
+  --form-field-focus-border-color: var(--color-primary);
+
+  --form-radio-width: 24px;
+  --form-radio-height: 24px;
+  --form-radio-padding-left: calc(
+    var(--form-radio-width) + var(--spacing-x-small)
+  );
+  --form-radio-color: var(--color-black);
+  --form-checkbox-width: 24px;
+  --form-checkbox-height: 24px;
+  --form-checkbox-padding-left: calc(
+    var(--form-radio-width) + var(--spacing-x-small)
+  );
+  --form-checkbox-color: var(--color-black);
+
+  --placeholder-color: var(--color-black);
+
+  // Transition
+  --transition-duration: 0.3s;
+  --transition-timing-function: ease-in-out;
+}
+
+$mixin-fluid-min-breakpoint: 1024px;
+$mixin-fluid-max-breakpoint: 1440px;
+
+// Background Colors
+$bg-colors: ("off-white", var(--color-off-white), var(--color-black)),
+  ("dark-teal", var(--color-dark-teal), var(--color-light-green)),
+  ("pink", var(--color-pink), var(--color-black)),
+  ("light-green", var(--color-light-green), var(--color-black)),
+  ("white", var(--color-white), var(--color-black)),
+  ("light-blue", var(--color-light-blue), var(--color-black));
+
+@each $color-theme, $colorbg, $color-text in $bg-colors {
+  .bg--#{$color-theme} {
+    background-color: $colorbg !important;
+    color: $color-text !important;
+
+    // Add this class to <svg> tag if you want your svg to be the same color as your text.
+    .svg--inherit-color {
+      // Add this class if your svg is using stroke
+      .path-stroke {
+        stroke: $color-text !important;
+      }
+
+      // Add this class if your svg is using fill
+      .path-fill {
+        fill: $color-text !important;
+      }
+    }
+
+    // Add this class to <a> tag if you want your link to be the same color as your text.
+    .link--inherit-color {
+      color: $color-text !important;
+    }
+
+    .button {
+      &.button--inherit-color {
+        color: $color-text !important;
+        background-color: transparent;
+        border-color: $color-text !important;
+
+        &.button--inherit-color-active {
+          color: $colorbg !important;
+          background-color: $color-text !important;
+        }
+
+        .no-touchevent & {
+          &:not(:disabled):not(.disabled) {
+            &:hover {
+              color: $colorbg !important;
+              background-color: $color-text !important;
+            }
+          }
+        }
+      }
+    }
+
+    .filter {
+      &-item {
+        .button {
+          &:not(.button--inherit-color-active) {
+            &:focus {
+              background-color: transparent !important;
+              color: $color-text !important;
+              border-color: $color-text !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section.section.bg--#{$color-theme} {
+    + section.section.bg--#{$color-theme} {
+      padding-top: 0;
+    }
+  }
+}
+
+// Accent Colors
+$accent-colors: ("black", var(--color-black)), ("white", var(--color-white)),
+  ("light-green", var(--color-light-green)),
+  ("dark-teal", var(--color-dark-teal)), ("pink", var(--color-pink)),
+  ("blue", var(--color-blue)), ("light-blue", var(--color-light-blue));
+
+@each $color-theme, $color in $accent-colors {
+  .text--#{$color-theme} {
+    color: $color !important;
+  }
+}

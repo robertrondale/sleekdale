@@ -1,0 +1,302 @@
+// NOTE: Button states are only working when there is no touch events
+
+@mixin button {
+  @include button-base;
+
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  color: var(--button-color-text);
+  border: var(--button-border-width) solid var(--button-color-border);
+  transition: all, var(--transition-duration) var(--transition-timing-function);
+  border-radius: var(--button-border-radius);
+  min-width: var(--button-min-width);
+  text-transform: uppercase;
+
+  @media (--laptop-max) {
+    padding: var(--button-padding-y-mobile) var(--button-padding-x-mobile);
+    font-size: var(--button-font-size-mobile);
+  }
+
+  &:not(:disabled):not(.disabled) {
+    .no-touchevent & {
+      &:hover {
+        border-color: var(--button-color-border);
+        background-color: var(--button-color-hover);
+        color: var(--button-color-hover-text);
+      }
+
+      &:active {
+        border-color: var(--button-color-border);
+        background-color: var(--button-color-hover);
+        color: var(--button-color-hover-text);
+      }
+
+      &:focus {
+        border-color: var(--button-color-border);
+        background-color: var(--button-color-hover);
+        color: var(--button-color-hover-text);
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.3;
+  }
+
+  //  Override sleek default
+  &:hover {
+    color: var(--button-color-text);
+  }
+}
+
+@function encodeColor($string) {
+  @if type-of($string) == "color" {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string: unquote("#{$hex}");
+  }
+  $string: "%23" + $string;
+  @return $string;
+}
+
+// Normal button
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  :focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.button {
+  @include button;
+
+  &.button--small {
+    padding: 11px 20px;
+
+    @media (--laptop) {
+      padding: 14px var(--spacing-small);
+    }
+  }
+}
+
+.button-link {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--button-link-color-text);
+  text-decoration: none;
+  font-family: var(--body-font-family);
+  font-size: var(--button-link-font-size);
+  font-weight: var(--button-link-font-weight);
+  letter-spacing: var(--button-link-letter-spacing);
+  line-height: var(--button-link-line-height);
+
+  @media (--laptop-max) {
+    padding: var(--button-padding-y-mobile) var(--button-padding-x-mobile);
+    font-size: var(--button-link-font-size-mobile);
+  }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 21px;
+    height: 18px;
+    margin-right: var(--spacing-x-small);
+    background-image: url("data:image/svg+xml,%3Csvg width='21' height='18' viewBox='0 0 21 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.7783 10.674H8.42943C4.19843 10.674 2.13086 8.5528 2.13086 4.36018V0.0900269' stroke='#{encodeColor($color-black)}' stroke-width='3' stroke-miterlimit='10'/%3E%3Cpath d='M12.5098 4.51801L18.7782 10.674L12.5098 17.0128' stroke='#{encodeColor($color-black)}' stroke-width='3' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+    transition: all,
+      var(--transition-duration) var(--transition-timing-function);
+  }
+
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:active,
+    &:focus {
+      color: var(--button-link-color-hover);
+      text-decoration: none;
+
+      &::before {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 0.3;
+
+    &:hover {
+      color: var(--button-link-color-hover);
+    }
+  }
+}
+
+/*--------------------------------------------------
+	  Buttons
+  --------------------------------------------------*/
+$button-colors: (
+    "primary",
+    var(--button-primary-color),
+    var(--button-primary-color-text),
+    var(--button-primary-color-border),
+    var(--button-primary-color-hover),
+    var(--button-primary-color-hover-text)
+  ),
+  (
+    "secondary",
+    var(--button-secondary-color),
+    var(--button-secondary-color-text),
+    var(--button-secondary-color-border),
+    var(--button-secondary-color-hover),
+    var(--button-secondary-color-hover-text)
+  ),
+  (
+    "tersiary",
+    var(--button-tersiary-color),
+    var(--button-tersiary-color-text),
+    var(--button-tersiary-color-border),
+    var(--button-tersiary-color-hover),
+    var(--button-tersiary-color-hover-text)
+  ),
+  (
+    "quarternary",
+    var(--button-quarternary-color),
+    var(--button-quarternary-color-text),
+    var(--button-quarternary-color-border),
+    var(--button-quarternary-color-hover),
+    var(--button-quarternary-color-hover-text)
+  );
+
+@each $color-name, $color, $color-text, $color-border, $color-hover,
+  $color-hover-text in $button-colors
+{
+  .button--#{$color-name} {
+    --button-color: #{$color};
+    --button-color-text: #{$color-text};
+    --button-color-border: #{$color-border};
+
+    &:not(:disabled):not(.disabled) {
+      .no-touchevent & {
+        &:hover {
+          --button-color-hover: #{$color-hover};
+          --button-color-hover-text: #{$color-hover-text};
+          --button-color-border: #{$color-border};
+        }
+
+        &:active {
+          --button-color-hover: #{$color-hover};
+          --button-color-hover-text: #{$color-hover-text};
+          --button-color-border: #{$color-border};
+        }
+
+        &:focus {
+          --button-color-hover: #{$color-hover};
+          --button-color-hover-text: #{$color-hover-text};
+          --button-color-border: #{$color-border};
+        }
+      }
+
+      &.is-active {
+        --button-color: #{$color-hover};
+        --button-color-text: #{$color-hover-text};
+        --button-color-border: #{$color-border};
+      }
+    }
+
+    &:disabled,
+    &.disabled {
+      opacity: 0.3;
+
+      &:hover {
+        color: var(--button-color-text);
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------
+	  Button Links
+  --------------------------------------------------*/
+$button-link-colors: (
+    "primary",
+    var(--button-link-primary-color),
+    var(--button-link-primary-color-hover),
+    $color-black
+  ),
+  (
+    "secondary",
+    var(--button-link-secondary-color),
+    var(--button-link-secondary-color-hover),
+    $color-dark-teal
+  ),
+  (
+    "tersiary",
+    var(--button-link-tersiary-color),
+    var(--button-link-tersiary-color-hover),
+    $color-pink
+  ),
+  (
+    "quarternary",
+    var(--button-link-quarternary-color),
+    var(--button-link-quarternary-color-hover),
+    $color-light-green
+  );
+
+@each $color-name, $color-text, $color-hover, $color-icon in $button-link-colors
+{
+  .button-link--#{$color-name} {
+    --button-link-color-text: #{$color-text};
+    --button-link-color-hover: #{$color-hover};
+
+    &:not(:disabled):not(.disabled) {
+      &:hover {
+        --button-link-color-hover: #{$color-hover};
+      }
+
+      &:active {
+        --button-link-color-hover: #{$color-hover};
+      }
+
+      &:focus {
+        --button-link-color-hover: #{$color-hover};
+      }
+    }
+
+    &::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='21' height='18' viewBox='0 0 21 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.7783 10.674H8.42943C4.19843 10.674 2.13086 8.5528 2.13086 4.36018V0.0900269' stroke='#{encodeColor($color-icon)}' stroke-width='3' stroke-miterlimit='10'/%3E%3Cpath d='M12.5098 4.51801L18.7782 10.674L12.5098 17.0128' stroke='#{encodeColor($color-icon)}' stroke-width='3' stroke-miterlimit='10'/%3E%3C/svg%3E%0A");
+    }
+  }
+}
+
+.touchevent {
+  .pnty-btn {
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+}
+
+// Special case for bright buttons
+.button--white {
+  --button-text-color: var(--color-primary);
+}
+
+//////////
+// Buttons
+.buttons {
+  margin: 0 calc(var(--spacing-xx-small) * -1) calc(var(--spacing-x-small) * -1);
+
+  > a {
+    margin: 0 var(--spacing-xx-small) var(--spacing-x-small);
+  }
+
+  @media (--tablet-max) {
+    > a {
+      display: block;
+    }
+  }
+}

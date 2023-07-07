@@ -1,0 +1,108 @@
+section.section-expertise {
+  .expertises {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -40px;
+    margin-bottom: -40px;
+
+    @media (--tablet) {
+      margin-top: -52px;
+      margin-bottom: -52px;
+    }
+  }
+
+  .expertise {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media (--tablet) {
+      display: flex;
+      align-items: flex-start;
+      width: 50%;
+      padding-right: 8.33333%;
+      padding-top: 52px;
+      padding-bottom: 52px;
+    }
+
+    &-icon {
+      display: flex;
+      width: 55px;
+
+      @media (--laptop) {
+        width: 70px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: var(--spacing-large);
+      }
+    }
+
+    &-content {
+      width: 100%;
+      @media (--tablet) {
+        margin-left: auto;
+        width: calc(100% - (70px + 5.556vw));
+      }
+
+      &-title {
+        + .expertise-content-preamble,
+        + .expertise-content-details {
+          margin-top: var(--spacing-x-small);
+        }
+      }
+
+      &-preamble {
+        + .expertise-content-details {
+          margin-top: var(--spacing-large);
+          @media (--laptop) {
+            margin-top: var(--spacing-x-large);
+          }
+        }
+      }
+
+      &-detail {
+        &-title {
+          font-weight: 700;
+          + .expertise-content-detail-list {
+            margin-top: var(--spacing-x-small);
+          }
+        }
+
+        &-list {
+          list-style: none;
+          padding-left: 0;
+          margin-left: 0;
+
+          li {
+            + li {
+              margin-top: var(--spacing-x-small);
+            }
+          }
+        }
+      }
+
+      &-details {
+        + .expertise-content-details {
+          margin-top: var(--spacing-x-large);
+          @media (--laptop) {
+            margin-top: var(--spacing-xx-large);
+          }
+        }
+      }
+
+      &-link {
+        margin-top: var(--spacing-medium);
+        @media (--laptop) {
+          margin-top: var(--spacing-large);
+        }
+
+        a {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
