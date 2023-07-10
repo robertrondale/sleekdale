@@ -1,0 +1,19 @@
+{
+    "name": "powerbuoy/sleek-post-types",
+    "description": "Create post types by creating classes in /post-types/.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-post-type.php", "sleek-post-types.php"]
+    },
+    "require": {
+        "powerbuoy/sleek-acf": "^2.0.0",
+        "powerbuoy/sleek-modules": "^7.0.0",
+        "powerbuoy/sleek-utils": "^1.0.0"
+    }
+}

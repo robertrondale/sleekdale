@@ -1,0 +1,17 @@
+{
+    "name": "powerbuoy/sleek-utils",
+    "description": "Utility functions used internally by Sleek. Please check the code for documentation.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-utils.php"]
+    },
+    "require": {
+        "icanboogie/inflector": "2.0"
+    }
+}

@@ -1,0 +1,1194 @@
+{
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "version_normalized": "1.12.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "time": "2021-09-13T08:19:44+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "miaoxing",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "pantheon",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "tastyigniter",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "./installers"
+        },
+        {
+            "name": "icanboogie/inflector",
+            "version": "v2.0.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ICanBoogie/Inflector.git",
+                "reference": "9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ICanBoogie/Inflector/zipball/9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327",
+                "reference": "9fa7e8fcf7a6ac06257ae77e9aa2ec90925b4327",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=7.1"
+            },
+            "time": "2019-10-04T09:43:33+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "lib/helpers.php"
+                ],
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Laviale",
+                    "email": "olivier.laviale@gmail.com",
+                    "homepage": "http://www.weirdog.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Multilingual inflector that transforms words from singular to plural, underscore to camel case, and more.",
+            "homepage": "http://icanboogie.org/",
+            "keywords": [
+                "camelize",
+                "hyphenate",
+                "inflect",
+                "multilingual",
+                "pluralize",
+                "singularize",
+                "underscore"
+            ],
+            "support": {
+                "issues": "https://github.com/ICanBoogie/Inflector/issues",
+                "source": "https://github.com/ICanBoogie/Inflector"
+            },
+            "install-path": "../icanboogie/inflector"
+        },
+        {
+            "name": "powerbuoy/sleek-acf",
+            "version": "v2.8.1",
+            "version_normalized": "2.8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-acf.git",
+                "reference": "4863680772d43c2204492db9068cb6c59879cdcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-acf/zipball/4863680772d43c2204492db9068cb6c59879cdcc",
+                "reference": "4863680772d43c2204492db9068cb6c59879cdcc",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-utils": "^1.2.0"
+            },
+            "time": "2022-10-12T12:32:19+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-acf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Improves ACF in a number of ways like nicer flexible content titles, collapsed flexible content layouts, better looking relationship field and more.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-acf/issues",
+                "source": "https://github.com/powerbuoy/sleek-acf/tree/v2.8.1"
+            },
+            "install-path": "../powerbuoy/sleek-acf"
+        },
+        {
+            "name": "powerbuoy/sleek-archive-filter",
+            "version": "v2.2.0",
+            "version_normalized": "2.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-archive-filter.git",
+                "reference": "d8a17d55da3608370ae6312e38057ceaf0aea342"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-filter/zipball/d8a17d55da3608370ae6312e38057ceaf0aea342",
+                "reference": "d8a17d55da3608370ae6312e38057ceaf0aea342",
+                "shasum": ""
+            },
+            "time": "2020-12-18T13:51:56+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-archive-filter.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Adds the ability to filter posts in an archive using GET params.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-archive-filter/issues",
+                "source": "https://github.com/powerbuoy/sleek-archive-filter/tree/v2.2.0"
+            },
+            "install-path": "../powerbuoy/sleek-archive-filter"
+        },
+        {
+            "name": "powerbuoy/sleek-archive-meta",
+            "version": "v3.5.0",
+            "version_normalized": "3.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-archive-meta.git",
+                "reference": "bf4701a474e866d862ae285961b784b637be4ca9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-archive-meta/zipball/bf4701a474e866d862ae285961b784b637be4ca9",
+                "reference": "bf4701a474e866d862ae285961b784b637be4ca9",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-utils": "^1.0.0"
+            },
+            "time": "2022-02-16T00:59:39+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-archive-meta.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Hooks into the the_archive_title() and the_archive_description() functions to provide better search results texts, remove prefixes and more.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-archive-meta/issues",
+                "source": "https://github.com/powerbuoy/sleek-archive-meta/tree/v3.5.0"
+            },
+            "install-path": "../powerbuoy/sleek-archive-meta"
+        },
+        {
+            "name": "powerbuoy/sleek-cleanup",
+            "version": "v4.1.0",
+            "version_normalized": "4.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-cleanup.git",
+                "reference": "ce46be3766959c0da3c72ab6eb9f8a9ea1868c01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-cleanup/zipball/ce46be3766959c0da3c72ab6eb9f8a9ea1868c01",
+                "reference": "ce46be3766959c0da3c72ab6eb9f8a9ea1868c01",
+                "shasum": ""
+            },
+            "time": "2022-05-30T09:06:22+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-cleanup.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Cleans up a bunch of unnecessary WordPress stuff like inline emoji code, gallery markup and more.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-cleanup/issues",
+                "source": "https://github.com/powerbuoy/sleek-cleanup/tree/v4.1.0"
+            },
+            "install-path": "../powerbuoy/sleek-cleanup"
+        },
+        {
+            "name": "powerbuoy/sleek-core",
+            "version": "v4.1.1",
+            "version_normalized": "4.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-core.git",
+                "reference": "86f8a8bcec0f368c8249ad6a39c9baea7137a5c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-core/zipball/86f8a8bcec0f368c8249ad6a39c9baea7137a5c3",
+                "reference": "86f8a8bcec0f368c8249ad6a39c9baea7137a5c3",
+                "shasum": ""
+            },
+            "time": "2022-05-30T09:01:11+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-core.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Adds a bunch of theme support, includes translation files, enqueues scripts etc etc.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-core/issues",
+                "source": "https://github.com/powerbuoy/sleek-core/tree/v4.1.1"
+            },
+            "install-path": "../powerbuoy/sleek-core"
+        },
+        {
+            "name": "powerbuoy/sleek-custom-logo",
+            "version": "v2.2.1",
+            "version_normalized": "2.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-custom-logo.git",
+                "reference": "1b367ffa4b43efdb7b7e035715e09f84065a7677"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-custom-logo/zipball/1b367ffa4b43efdb7b7e035715e09f84065a7677",
+                "reference": "1b367ffa4b43efdb7b7e035715e09f84065a7677",
+                "shasum": ""
+            },
+            "time": "2020-09-29T17:27:05+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-custom-logo.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Hooks into the_custom_logo() and improves it.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-custom-logo/issues",
+                "source": "https://github.com/powerbuoy/sleek-custom-logo/tree/v2.2.1"
+            },
+            "install-path": "../powerbuoy/sleek-custom-logo"
+        },
+        {
+            "name": "powerbuoy/sleek-gallery",
+            "version": "v3.1.4",
+            "version_normalized": "3.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-gallery.git",
+                "reference": "fa8c6602d4c3ce82ff1357312dc9d102fffd5d42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-gallery/zipball/fa8c6602d4c3ce82ff1357312dc9d102fffd5d42",
+                "reference": "fa8c6602d4c3ce82ff1357312dc9d102fffd5d42",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-utils": "^1.0.0"
+            },
+            "time": "2021-10-28T15:41:13+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-gallery.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Improves media and gallery related output like the default gallery markup, wraps captioned images in figure/figcaption, removes gallery CSS and more.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-gallery/issues",
+                "source": "https://github.com/powerbuoy/sleek-gallery/tree/v3.1.4"
+            },
+            "install-path": "../powerbuoy/sleek-gallery"
+        },
+        {
+            "name": "powerbuoy/sleek-google-maps",
+            "version": "v2.4.1",
+            "version_normalized": "2.4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-google-maps.git",
+                "reference": "1e076e63aab7aa470aa68da4a9d2550d2e8f2ad4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-maps/zipball/1e076e63aab7aa470aa68da4a9d2550d2e8f2ad4",
+                "reference": "1e076e63aab7aa470aa68da4a9d2550d2e8f2ad4",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-settings": "^1.0.0"
+            },
+            "time": "2021-12-10T12:30:58+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-google-maps.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Adds a 'Google Maps API Key' setting to the admin.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-google-maps/issues",
+                "source": "https://github.com/powerbuoy/sleek-google-maps/tree/v2.4.1"
+            },
+            "install-path": "../powerbuoy/sleek-google-maps"
+        },
+        {
+            "name": "powerbuoy/sleek-google-search",
+            "version": "v1.2.1",
+            "version_normalized": "1.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-google-search.git",
+                "reference": "4314326c5e578ca16937e9bee552a0849ae739e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-google-search/zipball/4314326c5e578ca16937e9bee552a0849ae739e3",
+                "reference": "4314326c5e578ca16937e9bee552a0849ae739e3",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-settings": "^1.0.0"
+            },
+            "time": "2021-12-10T12:31:33+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-google-search.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Under construction.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-google-search/issues",
+                "source": "https://github.com/powerbuoy/sleek-google-search/tree/v1.2.1"
+            },
+            "install-path": "../powerbuoy/sleek-google-search"
+        },
+        {
+            "name": "powerbuoy/sleek-image-sizes",
+            "version": "v1.2.0",
+            "version_normalized": "1.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-image-sizes.git",
+                "reference": "487e22cec1604afafa2d43e801453a700ea66cd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-image-sizes/zipball/487e22cec1604afafa2d43e801453a700ea66cd4",
+                "reference": "487e22cec1604afafa2d43e801453a700ea66cd4",
+                "shasum": ""
+            },
+            "time": "2020-03-09T10:08:09+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-image-sizes.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Utility functions for registering WordPress image sizes.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-image-sizes/issues",
+                "source": "https://github.com/powerbuoy/sleek-image-sizes/tree/v1.2.0"
+            },
+            "install-path": "../powerbuoy/sleek-image-sizes"
+        },
+        {
+            "name": "powerbuoy/sleek-login",
+            "version": "v2.3.1",
+            "version_normalized": "2.3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-login.git",
+                "reference": "f30d554b022e99047978d050255a2a3c2a8e3180"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-login/zipball/f30d554b022e99047978d050255a2a3c2a8e3180",
+                "reference": "f30d554b022e99047978d050255a2a3c2a8e3180",
+                "shasum": ""
+            },
+            "time": "2022-01-31T15:34:55+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-login.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Improves the login screen and hides admin bar from subscribers, also redirects them to the home page upon login.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-login/issues",
+                "source": "https://github.com/powerbuoy/sleek-login/tree/v2.3.1"
+            },
+            "install-path": "../powerbuoy/sleek-login"
+        },
+        {
+            "name": "powerbuoy/sleek-menu",
+            "version": "v1.5.0",
+            "version_normalized": "1.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-menu.git",
+                "reference": "8b7742adaa0af5927f4ceed2590aa2298a9556d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-menu/zipball/8b7742adaa0af5927f4ceed2590aa2298a9556d8",
+                "reference": "8b7742adaa0af5927f4ceed2590aa2298a9556d8",
+                "shasum": ""
+            },
+            "time": "2021-04-15T08:30:05+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-menu.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Cleans up the menu HTML by removing IDs and redundant classes. Also fixes active-classes on post type and taxonomy archives.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-menu/issues",
+                "source": "https://github.com/powerbuoy/sleek-menu/tree/v1.5.0"
+            },
+            "install-path": "../powerbuoy/sleek-menu"
+        },
+        {
+            "name": "powerbuoy/sleek-modules",
+            "version": "v7.0.3",
+            "version_normalized": "7.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-modules.git",
+                "reference": "74915cf3d65af161726613f134c0ba3db959470a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-modules/zipball/74915cf3d65af161726613f134c0ba3db959470a",
+                "reference": "74915cf3d65af161726613f134c0ba3db959470a",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-acf": "^2.0.0",
+                "powerbuoy/sleek-utils": "^1.0.0"
+            },
+            "time": "2021-12-10T12:37:17+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-module.php",
+                    "sleek-modules.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Create modules by creating classes in /modules/.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-modules/issues",
+                "source": "https://github.com/powerbuoy/sleek-modules/tree/v7.0.3"
+            },
+            "install-path": "../powerbuoy/sleek-modules"
+        },
+        {
+            "name": "powerbuoy/sleek-notices",
+            "version": "v2.3.1",
+            "version_normalized": "2.3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-notices.git",
+                "reference": "f73d4e6f49eb29d3526bc24f0e53153cc9703b2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-notices/zipball/f73d4e6f49eb29d3526bc24f0e53153cc9703b2a",
+                "reference": "f73d4e6f49eb29d3526bc24f0e53153cc9703b2a",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-settings": "^1.0.0"
+            },
+            "time": "2021-12-10T12:43:53+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-notices.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Adds settings to Settings -> Sleek to display various notices on the site.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-notices/issues",
+                "source": "https://github.com/powerbuoy/sleek-notices/tree/v2.3.1"
+            },
+            "install-path": "../powerbuoy/sleek-notices"
+        },
+        {
+            "name": "powerbuoy/sleek-post-types",
+            "version": "v6.5.0",
+            "version_normalized": "6.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-post-types.git",
+                "reference": "75fef92f34ee07db78d979a4180d584eab423b93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-post-types/zipball/75fef92f34ee07db78d979a4180d584eab423b93",
+                "reference": "75fef92f34ee07db78d979a4180d584eab423b93",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-acf": "^2.0.0",
+                "powerbuoy/sleek-modules": "^7.0.0",
+                "powerbuoy/sleek-utils": "^1.0.0"
+            },
+            "time": "2021-12-15T22:26:23+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-post-type.php",
+                    "sleek-post-types.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Create post types by creating classes in /post-types/.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-post-types/issues",
+                "source": "https://github.com/powerbuoy/sleek-post-types/tree/v6.5.0"
+            },
+            "install-path": "../powerbuoy/sleek-post-types"
+        },
+        {
+            "name": "powerbuoy/sleek-settings",
+            "version": "v1.2.2",
+            "version_normalized": "1.2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-settings.git",
+                "reference": "3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-settings/zipball/3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef",
+                "reference": "3bef8fdf5bcb354d525bf2c5d3a2e07c3d7d0fef",
+                "shasum": ""
+            },
+            "require": {
+                "powerbuoy/sleek-utils": "^1.0.0"
+            },
+            "time": "2021-12-10T13:06:03+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-settings.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Adds an options page to the admin (Settings -> Sleek) with some built-in settings.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-settings/issues",
+                "source": "https://github.com/powerbuoy/sleek-settings/tree/v1.2.2"
+            },
+            "install-path": "../powerbuoy/sleek-settings"
+        },
+        {
+            "name": "powerbuoy/sleek-tinymce",
+            "version": "v2.1.1",
+            "version_normalized": "2.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-tinymce.git",
+                "reference": "0d99b139bc20f624fcd92d127548425f563b6b94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-tinymce/zipball/0d99b139bc20f624fcd92d127548425f563b6b94",
+                "reference": "0d99b139bc20f624fcd92d127548425f563b6b94",
+                "shasum": ""
+            },
+            "time": "2021-12-10T12:57:46+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-tinymce.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Improves the TinyMCE editor.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-tinymce/issues",
+                "source": "https://github.com/powerbuoy/sleek-tinymce/tree/v2.1.1"
+            },
+            "install-path": "../powerbuoy/sleek-tinymce"
+        },
+        {
+            "name": "powerbuoy/sleek-utils",
+            "version": "v1.9.0",
+            "version_normalized": "1.9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/powerbuoy/sleek-utils.git",
+                "reference": "cc990274ff0255705d582ad4afdf317c6746e2dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/powerbuoy/sleek-utils/zipball/cc990274ff0255705d582ad4afdf317c6746e2dd",
+                "reference": "cc990274ff0255705d582ad4afdf317c6746e2dd",
+                "shasum": ""
+            },
+            "require": {
+                "icanboogie/inflector": "2.0"
+            },
+            "time": "2021-12-09T11:22:02+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "sleek-utils.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lagerkvist",
+                    "email": "powerbuoy@gmail.com"
+                }
+            ],
+            "description": "Utility functions used internally by Sleek. Please check the code for documentation.",
+            "support": {
+                "issues": "https://github.com/powerbuoy/sleek-utils/issues",
+                "source": "https://github.com/powerbuoy/sleek-utils/tree/v1.9.0"
+            },
+            "install-path": "../powerbuoy/sleek-utils"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "2.9.2",
+            "version_normalized": "2.9.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "2acf168de78487db620ab4bc524135a13cfe6745"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/2acf168de78487db620ab4bc524135a13cfe6745",
+                "reference": "2acf168de78487db620ab4bc524135a13cfe6745",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "time": "2018-11-07T22:31:41+00:00",
+            "bin": [
+                "scripts/phpcs",
+                "scripts/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Fixer.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "support": {
+                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
+                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
+                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
+            },
+            "install-path": "../squizlabs/php_codesniffer"
+        },
+        {
+            "name": "stok-plugins/advanced-custom-fields-pro",
+            "version": "5.12.3",
+            "version_normalized": "5.12.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://plugins.sfo.stok.se/advanced-custom-fields-pro/5.12.3.zip"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "install-path": "../../../../plugins/advanced-custom-fields-pro"
+        },
+        {
+            "name": "stok-plugins/polylang-pro",
+            "version": "3.1.4",
+            "version_normalized": "3.1.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://plugins.sfo.stok.se/polylang-pro/3.1.4.zip"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "install-path": "../../../../plugins/polylang-pro"
+        },
+        {
+            "name": "stok-plugins/ponty-connector",
+            "version": "1.0.4",
+            "version_normalized": "1.0.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://plugins.sfo.stok.se/ponty-connector/1.0.4.zip"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "install-path": "../../../../plugins/ponty-connector"
+        },
+        {
+            "name": "stok-plugins/wp-migrate-db-pro",
+            "version": "2.3.4",
+            "version_normalized": "2.3.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://plugins.sfo.stok.se/wp-migrate-db-pro/2.3.4.zip"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "install-path": "../../../../plugins/wp-migrate-db-pro"
+        },
+        {
+            "name": "wpackagist-plugin/query-monitor",
+            "version": "3.10.1",
+            "version_normalized": "3.10.1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/query-monitor/",
+                "reference": "tags/3.10.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/query-monitor.3.10.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/query-monitor/",
+            "install-path": "../../../../plugins/query-monitor"
+        },
+        {
+            "name": "wpackagist-plugin/safe-svg",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/safe-svg/",
+                "reference": "tags/2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.0.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/safe-svg/",
+            "install-path": "../../../../plugins/safe-svg"
+        },
+        {
+            "name": "wpackagist-plugin/sucuri-scanner",
+            "version": "1.8.35",
+            "version_normalized": "1.8.35.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/sucuri-scanner/",
+                "reference": "tags/1.8.35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/sucuri-scanner.1.8.35.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/sucuri-scanner/",
+            "install-path": "../../../../plugins/sucuri-scanner"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "19.8",
+            "version_normalized": "19.8.0.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/19.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.8.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "installation-source": "dist",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/",
+            "install-path": "../../../../plugins/wordpress-seo"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": [
+        "squizlabs/php_codesniffer"
+    ]
+}

@@ -37,7 +37,7 @@
 			<?php endif ?>
 			<div class="footer-copyright footer-submenu-column">
 				<small
-					class="footer-copyright-text"><?= get_field('general_info_copyright', 'global_settings') ?? '' ?: '© Beyond Retail 2022' ?></small>
+					class="footer-copyright-text"><?= get_field('general_info_copyright', 'global_settings') ?? '' ?: '© Sleek Dale 2022' ?></small>
 			</div>
 		</div>
 	</div>

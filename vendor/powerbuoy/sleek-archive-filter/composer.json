@@ -1,0 +1,14 @@
+{
+    "name": "powerbuoy/sleek-archive-filter",
+    "description": "Adds the ability to filter posts in an archive using GET params.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-archive-filter.php"]
+    }
+}

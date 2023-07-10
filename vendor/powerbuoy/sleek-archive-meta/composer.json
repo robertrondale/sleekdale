@@ -1,0 +1,17 @@
+{
+    "name": "powerbuoy/sleek-archive-meta",
+    "description": "Hooks into the the_archive_title() and the_archive_description() functions to provide better search results texts, remove prefixes and more.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-archive-meta.php"]
+    },
+    "require": {
+        "powerbuoy/sleek-utils": "^1.0.0"
+    }
+}

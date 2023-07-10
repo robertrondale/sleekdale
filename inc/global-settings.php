@@ -129,7 +129,7 @@ add_action('acf/init', function () {
                 'name' => 'general_info_copyright',
                 'label' => __('Copyright', 'sleek_admin'),
                 'type' => 'text',
-                'default_value' => '© Beyond Retail 2022',
+                'default_value' => '© Sleek Dale 2022',
             ],
             [
                 'key' => 'gs_general_info_mailchimp',

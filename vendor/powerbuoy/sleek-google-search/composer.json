@@ -1,0 +1,17 @@
+{
+    "name": "powerbuoy/sleek-google-search",
+    "description": "Under construction.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-google-search.php"]
+    },
+    "require": {
+        "powerbuoy/sleek-settings": "^1.0.0"
+    }
+}

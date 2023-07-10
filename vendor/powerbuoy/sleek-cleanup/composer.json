@@ -1,0 +1,14 @@
+{
+    "name": "powerbuoy/sleek-cleanup",
+    "description": "Cleans up a bunch of unnecessary WordPress stuff like inline emoji code, gallery markup and more.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-cleanup.php"]
+    }
+}

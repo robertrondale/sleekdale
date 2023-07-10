@@ -1,0 +1,14 @@
+{
+    "name": "powerbuoy/sleek-login",
+    "description": "Improves the login screen and hides admin bar from subscribers, also redirects them to the home page upon login.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-login.php"]
+    }
+}

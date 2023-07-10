@@ -1,0 +1,17 @@
+{
+    "name": "powerbuoy/sleek-settings",
+    "description": "Adds an options page to the admin (Settings -> Sleek) with some built-in settings.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Andreas Lagerkvist",
+            "email": "powerbuoy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["sleek-settings.php"]
+    },
+    "require": {
+        "powerbuoy/sleek-utils": "^1.0.0"
+    }
+}
